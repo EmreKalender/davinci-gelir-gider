@@ -5,7 +5,7 @@ import Giderler from 'components/Giderler'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import DavinciHeader from 'components/DavinciHeader'
-export default function gelirgider({gelirler,giderler}){
+export default function Gelirgider({gelirler,giderler}){
     const router=useRouter();
     const user=router.query;
     const [toogle,setToogle]=useState('GELIR')

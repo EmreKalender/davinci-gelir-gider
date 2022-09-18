@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import Gider from 'components/Gider'
-export default function ({giderler}){
+export default function Giderler({giderler}){
     if(!giderler) return null
 
     return(

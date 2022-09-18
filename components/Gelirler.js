@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import Gelir from 'components/Gelir'
-export default function ({gelirler}){
+export default function Gelirler({gelirler}){
     if(!gelirler) return null
 
     return(
