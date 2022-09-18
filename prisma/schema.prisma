@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String       @id @default(cuid())
+  username      String?   @unique
+  password      String?
+  usertype      String?
+  gelirler      Gelir[]
+  giderler      Gider[]
+
+}
+
+model Gider {
+  id            Int     @id @default(autoincrement())
+  ay            Int
+  yil           Int
+  sube          String
+  kategori      String
+  altkategori   String
+  aciklama      String?
+  miktar        Float
+  author        User @relation(fields: [authorId], references: [id])
+  authorId      String
+}
+
+model Gelir {
+  id            Int     @id @default(autoincrement())
+  ay            Int
+  yil           Int
+  sube          String
+  kategori      String
+  miktar        Float
+  author        User @relation(fields: [authorId], references: [id])
+  authorId      String
+}
+
